@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppTest from './AppTest.jsx';
+import App from './App.jsx';
 
-const element = <AppTest />;
+const element = <App />;
 ReactDOM.render(
    element,
    document.getElementById('content')

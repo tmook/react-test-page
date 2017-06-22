@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tmook/react-test.git"
+    "url": "git+https://github.com/tmook/react-test-page.git"
   },
   "author": "Tyson",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tmook/react-test/issues"
+    "url": "https://github.com/tmook/react-test-page/issues"
   },
-  "homepage": "https://github.com/tmook/react-test#readme",
+  "homepage": "https://github.com/tmook/react-test-page#readme",
   "dependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.0.0",

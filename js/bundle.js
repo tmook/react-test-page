@@ -22417,13 +22417,449 @@ var _react = __webpack_require__(49);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _AnimalTable = __webpack_require__(185);
+
+var _AnimalTable2 = _interopRequireDefault(_AnimalTable);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
-  return null;
+  return _react2.default.createElement(_AnimalTable2.default, { animals: ANIMALS });
 }
 
 exports.default = App;
+
+
+var ANIMALS = [{ id: "2104270841", animal: "Cat", age: "3", color: "Brown" }, { id: "245082176", animal: "Dog", age: "2", color: "Orange" }, { id: "-1846001306", animal: "Pig", Age: "1", color: "White" }];
+
+/***/ }),
+/* 185 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(49);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _DataTable = __webpack_require__(186);
+
+var _DataTable2 = _interopRequireDefault(_DataTable);
+
+var _DataTableAddRow = __webpack_require__(189);
+
+var _DataTableAddRow2 = _interopRequireDefault(_DataTableAddRow);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var AnimalTable = function (_React$Component) {
+  _inherits(AnimalTable, _React$Component);
+
+  function AnimalTable(props) {
+    _classCallCheck(this, AnimalTable);
+
+    var _this = _possibleConstructorReturn(this, (AnimalTable.__proto__ || Object.getPrototypeOf(AnimalTable)).call(this, props));
+
+    _this.state = { data: _this.props.animals };
+
+    _this.handleAdd = _this.handleAdd.bind(_this);
+    _this.handleRemove = _this.handleRemove.bind(_this);
+    return _this;
+  }
+
+  _createClass(AnimalTable, [{
+    key: 'handleAdd',
+    value: function handleAdd(newRow) {
+      //add newRow to state
+      this.setState(function (prevState) {
+        return { data: prevState.data.push(newRow) };
+      });
+    }
+  }, {
+    key: 'handleRemove',
+    value: function handleRemove(data_id) {
+      this.setState(function (prevState) {
+        return { data: prevState.data.filter(function (row) {
+            return row.id != data_id && row;
+          }) };
+      });
+
+      //remove state element with data-id
+      //const toDelete = new Set(['abc', 'efg']);
+      //const newArray = arrayOfObjects.filter(obj => !toDelete.has(obj.id));
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'strong',
+          null,
+          'Animal Data Table'
+        ),
+        _react2.default.createElement(_DataTable2.default, { remove: this.handleRemove, data: this.state.data })
+      );
+    }
+  }]);
+
+  return AnimalTable;
+}(_react2.default.Component);
+
+exports.default = AnimalTable;
+
+/***/ }),
+/* 186 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(49);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _DataCategoryRow = __webpack_require__(187);
+
+var _DataCategoryRow2 = _interopRequireDefault(_DataCategoryRow);
+
+var _DataRow = __webpack_require__(188);
+
+var _DataRow2 = _interopRequireDefault(_DataRow);
+
+var _DataTableEmptyRow = __webpack_require__(190);
+
+var _DataTableEmptyRow2 = _interopRequireDefault(_DataTableEmptyRow);
+
+var _DataTableAddRow = __webpack_require__(189);
+
+var _DataTableAddRow2 = _interopRequireDefault(_DataTableAddRow);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var DataTable = function (_React$Component) {
+  _inherits(DataTable, _React$Component);
+
+  function DataTable(props) {
+    _classCallCheck(this, DataTable);
+
+    var _this = _possibleConstructorReturn(this, (DataTable.__proto__ || Object.getPrototypeOf(DataTable)).call(this, props));
+
+    _this.handleRemove = _this.handleRemove.bind(_this);
+    return _this;
+  }
+
+  _createClass(DataTable, [{
+    key: 'handleRemove',
+    value: function handleRemove(data_id) {
+      this.props.removeRow(data_id);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var categories = this.props.data.length > 0 ? Object.keys(this.props.data[0]).splice(1) : {};
+      var dataRows = this.props.data.map(function (row, index) {
+        return _react2.default.createElement(_DataRow2.default, { key: index, values: row, remove: _this2.props.remove });
+      });
+
+      return _react2.default.createElement(
+        'table',
+        null,
+        _react2.default.createElement(
+          'thead',
+          null,
+          _react2.default.createElement(_DataCategoryRow2.default, { categories: categories })
+        ),
+        _react2.default.createElement(
+          'tbody',
+          null,
+          dataRows,
+          _react2.default.createElement(_DataTableAddRow2.default, { addRow: this.handleAdd })
+        )
+      );
+    }
+  }]);
+
+  return DataTable;
+}(_react2.default.Component);
+
+exports.default = DataTable;
+
+/***/ }),
+/* 187 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(49);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function DataCategoryRow(props) {
+  var headerElements = [];
+  for (var c in props.categories) {
+    headerElements.push(_react2.default.createElement(
+      'th',
+      { key: c },
+      props.categories[c]
+    ));
+  }
+  //props.categories.map( (category,index) => {
+  //<th key={index}>{category}</th>
+  //});
+  return _react2.default.createElement(
+    'tr',
+    null,
+    headerElements
+  );
+}
+
+exports.default = DataCategoryRow;
+
+/***/ }),
+/* 188 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(49);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var DataRow = function (_React$Component) {
+  _inherits(DataRow, _React$Component);
+
+  function DataRow(props) {
+    _classCallCheck(this, DataRow);
+
+    var _this = _possibleConstructorReturn(this, (DataRow.__proto__ || Object.getPrototypeOf(DataRow)).call(this, props));
+
+    _this.handleClick = _this.handleClick.bind(_this);
+    return _this;
+  }
+
+  _createClass(DataRow, [{
+    key: "handleClick",
+    value: function handleClick(e) {
+      //if data-id exists
+      if (e != null) {
+        //call remove function passed from props with data-id
+        this.props.remove(e);
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var rowElements = [];
+      for (var key in this.props.values) {
+        if (key != "id") {
+          rowElements.push(_react2.default.createElement(
+            "td",
+            { key: key },
+            this.props.values[key]
+          ));
+        }
+      }
+
+      return _react2.default.createElement(
+        "tr",
+        null,
+        rowElements,
+        _react2.default.createElement(
+          "td",
+          { onClick: this.handleClick },
+          "\u2716"
+        )
+      );
+    }
+  }]);
+
+  return DataRow;
+}(_react2.default.Component);
+
+exports.default = DataRow;
+
+/***/ }),
+/* 189 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(49);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var DataTableAddRow = function (_React$Component) {
+  _inherits(DataTableAddRow, _React$Component);
+
+  function DataTableAddRow(props) {
+    _classCallCheck(this, DataTableAddRow);
+
+    var _this = _possibleConstructorReturn(this, (DataTableAddRow.__proto__ || Object.getPrototypeOf(DataTableAddRow)).call(this, props));
+
+    _this.state = {
+      animal: "",
+      age: "",
+      color: ""
+    };
+
+    _this.handleChange = _this.handleChange.bind(_this);
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    return _this;
+  }
+
+  _createClass(DataTableAddRow, [{
+    key: "handleChange",
+    value: function handleChange(e) {
+      var target = e.target;
+      var value = target.value;
+      var name = target.name;
+      this.setState(_defineProperty({}, name, value));
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      alert('A name was submitted: ' + this.state);
+      this.props.addRow(this.state);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "tr",
+        null,
+        _react2.default.createElement(
+          "td",
+          null,
+          _react2.default.createElement("input", { type: "text", name: "animal", placeholder: "Animal", value: this.state.value, onChange: this.handleChange })
+        ),
+        _react2.default.createElement(
+          "td",
+          null,
+          _react2.default.createElement("input", { type: "text", name: "age", placeholder: "Age", value: this.state.value, onChange: this.handleChange })
+        ),
+        _react2.default.createElement(
+          "td",
+          null,
+          _react2.default.createElement("input", { type: "text", name: "color", placeholder: "Color", value: this.state.value, onChange: this.handleChange })
+        ),
+        _react2.default.createElement(
+          "td",
+          null,
+          _react2.default.createElement(
+            "button",
+            { type: "submit", value: "add" },
+            "add"
+          )
+        )
+      );
+    }
+  }]);
+
+  return DataTableAddRow;
+}(_react2.default.Component);
+
+exports.default = DataTableAddRow;
+
+/***/ }),
+/* 190 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(49);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function DataTableEmptyRow(props) {
+  var tdElements = [];
+  for (var i = 0; i < props.col; i++) {
+    tdElements.push(_react2.default.createElement('td', null));
+  }
+
+  return _react2.default.createElement(
+    'tr',
+    null,
+    tdElements
+  );
+}
+
+exports.default = DataTableEmptyRow;
 
 /***/ })
 /******/ ]);

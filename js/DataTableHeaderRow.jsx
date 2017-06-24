@@ -1,6 +1,6 @@
 import React from 'react';
 
-function DataCategoryRow (props){
+function DataTableHeaderRow (props){
   const headerElements = props.categories.map( 
       (category,index) =>  
       <th key={index}>{category.charAt(0).toUpperCase()+category.slice(1)}</th>
@@ -13,4 +13,4 @@ function DataCategoryRow (props){
   );
 }
 
-export default DataCategoryRow;
+export default DataTableHeaderRow;

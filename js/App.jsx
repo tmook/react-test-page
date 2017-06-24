@@ -1,9 +1,9 @@
 import React from 'react';
-import AnimalTable from './AnimalTable.jsx';
+import MutableDataTable from './MutableDataTable.jsx';
 
 function App(){
   return (
-    <AnimalTable animals={ANIMALS}/>
+    <MutableDataTable data={ANIMALS} hideField={['id']}/>
   );
 }
 

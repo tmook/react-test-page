@@ -1,9 +1,13 @@
 import React from 'react';
+import CenterTitle from './CenterTitle.jsx';
 import MutableDataTable from './MutableDataTable.jsx';
 
 function App(){
   return (
-    <MutableDataTable data={ANIMALS} hideField={['id']}/>
+    <div>
+      <CenterTitle title='React Test App' />
+      <MutableDataTable data={ANIMALS} hideField={['id']}/>
+    </div>
   );
 }
 

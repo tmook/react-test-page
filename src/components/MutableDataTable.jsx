@@ -66,7 +66,7 @@ class MutableDataTable extends React.Component{
     return (
       <table>
         <caption>
-          {this.props.title != null ? this.props.title : "Data Table"}
+          {this.props.title != null ? this.props.title : "Mutable Data Table"}
         </caption>
         <thead>
           <DataTableHeaderRow 

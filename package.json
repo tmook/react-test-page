@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "webpack": "./node_modules/.bin/webpack",
-    "dev": "./node_modules/.bin/webpack-dev-server --content-base . --port 3000 --inline --hot",
-    "build": "echo \"Error: no build specified\" && exit 1",
+    "build": "NODE_ENV='production' ./node_modules/.bin/webpack -p",
+    "dev-build": "./node_modules/.bin/webpack",
+    "start": "./node_modules/.bin/webpack-dev-server --content-base ./src/ --port 3000 --inline --hot",
+    "clean": "rimraf dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,6 +27,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "es6-promise": "^4.1.0",
+    "html-webpack-plugin": "^2.29.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "webpack": "^3.0.0",

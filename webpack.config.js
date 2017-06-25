@@ -1,13 +1,22 @@
+var debug = process.env.NODE_ENV !== 'production';
 var path = require('path');
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
+var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: __dirname + '/src/index.html',
+  filename: 'index.html',
+  inject: 'body'
+});
+
 
 module.exports = {
-   entry: './js/index.js',
+   context: __dirname + '/src',
+   entry: './index.js',
    output: {
-      path: __dirname,
-      filename: 'js/bundle.js'
+      path: __dirname + '/dist',
+      filename: 'static/bundle.js',
    },
-   watch: false,
    module: {
       loaders: [
          {
@@ -20,6 +29,12 @@ module.exports = {
          }
       ]
    },
+   plugins: debug ? [HTMLWebpackPluginConfig] : [
+      HTMLWebpackPluginConfig,
+      new webpack.optimize.DedupePlugin(),
+      new webpack.optimize.OccurrenceOrderPlugin(),
+      new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
+   ],
 };
 
 

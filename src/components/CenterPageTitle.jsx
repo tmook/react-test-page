@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CenterTitle(props){
+function CenterPageTitle(props){
   return (
     <center>
       <h1>{props.title}</h1>
@@ -8,4 +8,4 @@ function CenterTitle(props){
   );
 }
 
-export default CenterTitle;
+export default CenterPageTitle;

@@ -1,11 +1,11 @@
 import React from 'react';
-import CenterTitle from './CenterTitle.jsx';
+import CenterPageTitle from './CenterPageTitle.jsx';
 import MutableDataTable from './MutableDataTable.jsx';
 
 function App(){
   return (
     <div>
-      <CenterTitle title='React Test App' />
+      <CenterPageTitle title='React Test App' />
       <MutableDataTable data={ANIMALS} hideField={['id']}/>
     </div>
   );

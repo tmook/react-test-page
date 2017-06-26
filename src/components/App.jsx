@@ -1,12 +1,14 @@
 import React from 'react';
 import CenterPageTitle from './CenterPageTitle.jsx';
 import MutableDataTable from './MutableDataTable.jsx';
+import GoogleMaps from './GoogleMaps.jsx';
 
 function App(){
   return (
     <div>
       <CenterPageTitle title='React Test App' />
       <MutableDataTable data={ANIMALS} hideField={['id']}/>
+      <GoogleMaps />
     </div>
   );
 }

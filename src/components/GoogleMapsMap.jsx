@@ -1,8 +1,24 @@
 import React from 'react';
+import * as CONST from '../util/Constants.js';
+
 
 class GoogleMap extends React.Component{
   constructor(props){
     super(props);
+
+    this.defaultConfig = {
+      center: {
+        lat: 21.299772, 
+        lng: -157.815886
+      },
+      zoom: 8,
+      mapSize: {
+        width: "500px",
+        height: "300px"
+      }
+    };
+
+    this.mapMarkers = [];
 
     this.load = this.load.bind(this);
     this.error = this.error.bind(this);
@@ -15,10 +31,12 @@ class GoogleMap extends React.Component{
       //load map with settings and save to this.map variable
       this.map = new google.maps.Map(
         this.refs.map, 
-        { center: this.props.center ? this.props.center : defaultConfig.center, 
-          zoom: this.props.zoom ? this.props.zoom : defaultConfig.zoom 
+        { center: this.props.center ? this.props.center : this.defaultConfig.center, 
+          zoom: this.props.zoom ? this.props.zoom : this.defaultConfig.zoom 
         }
       );
+      this.loadMarkers(this.props.markers);
+      this.showMarkers();
     }else{
       console.log(
         'google maps script loaded, but unable to find google.maps object'
@@ -58,7 +76,12 @@ class GoogleMap extends React.Component{
   /* this should trigger when GoogleMaps state.center is updated */
   componentDidUpdate(prevProps, prevState) {
     if(prevProps.center !== this.props.center) {
-      this.panToCenter(prevProps.center);
+      this.panToCenter(this.props.center);
+    }
+    if(prevProps.markers !== this.props.markers) {
+      this.clearMarkers();
+      this.loadMarkers(this.props.markers);
+      this.showMarkers();
     }
   }
 
@@ -67,10 +90,37 @@ class GoogleMap extends React.Component{
     this.map.panTo(newCenter);
   }
 
+  loadMarkers(markers){
+    if(markers.length > 0 ){
+      markers.forEach( marker => {
+        const m = new google.maps.Marker({
+          position: {lat:marker.lat, lng:marker.lng},
+          map: this.map,
+          icon: CONST.MARKERS[marker.color]
+        });
+
+        this.mapMarkers.push(m);
+      });
+    }
+  }
+
+  setMarkers(map){
+    this.mapMarkers.forEach( marker => marker.setMap(map) );
+  }
+
+  showMarkers(){
+    this.setMarkers(this.map);
+  }
+
+  clearMarkers(){
+    this.setMarkers(null);
+    this.mapMarkers = [];
+  }
+
   render() {
     return ( 
       <div 
-        style={this.props.mapSize ? this.props.mapSize : defaultConfig.mapSize} 
+        style={this.props.mapSize ? this.props.mapSize : this.defaultConfig.mapSize} 
         ref='map'>
         google maps
       </div> 
@@ -81,15 +131,3 @@ class GoogleMap extends React.Component{
 
 export default GoogleMap;
 
-
-const defaultConfig = {
-  center: {
-    lat: 21.299772, 
-    lng: -157.815886
-  },
-  zoom: 8,
-  mapSize: {
-    width: "500px",
-    height: "300px"
-  }
-}

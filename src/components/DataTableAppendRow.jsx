@@ -1,4 +1,7 @@
 import React from 'react';
+import hashCode from '../util/hashCode.js';
+import capitalize from '../util/capitalize.js';
+
 
 class DataTableAppendRow extends React.Component {
   constructor(props){
@@ -31,13 +34,14 @@ class DataTableAppendRow extends React.Component {
       }
     }
     //get hashcode and set to id field
-    rowObj['id'] = this.hashCode(hashString);
+    rowObj['id'] = hashCode(hashString);
 
     //lift change up to parent
     this.props.handleRowAdd(rowObj);
 
     //reset input fields
     this.reset();
+
   }
 
   reset(){
@@ -48,21 +52,6 @@ class DataTableAppendRow extends React.Component {
     }
   }
 
-  hashCode(word){
-    var hash = 0, i, chr;
-    if (word.length === 0) return hash;
-    for (i = 0; i < word.length; i++) {
-      chr = word.charCodeAt(i);
-      hash = ((hash << 5) - hash) + chr;
-      hash |= 0; // Convert to 32bit integer
-    }
-    return hash;
-  }
-
-  capitalize(word) {
-    return word.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
-  }
-
   render(){
     const inputFields = this.props.categories.map( (category,index) => (
         <td key={index}>
@@ -70,7 +59,7 @@ class DataTableAppendRow extends React.Component {
             type="text" 
             ref={input => this.refList[category]=input}
             name={category}
-            placeholder={this.capitalize(category)}
+            placeholder={capitalize(category)}
             onChange={this.handleChange} />
         </td>
       )

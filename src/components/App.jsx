@@ -8,7 +8,7 @@ function App(){
     <div>
       <CenterPageTitle title='React Test App' />
       <MutableDataTable data={ANIMALS} hideField={['id']}/>
-      <GoogleMaps />
+      <GoogleMaps markers={MAPS.markers} center={MAPS.center}/>
     </div>
   );
 }
@@ -20,3 +20,16 @@ var ANIMALS = [
     {id: "245082176", animal: "Dog", age: "2", color: "Orange"},
     {id: "-1846001306", animal: "Pig", Age: "1", color: "White"}
 ];
+
+var MAPS = {
+  markers:[{ 
+    id:1,
+    color:"orange_dot",
+    lat: 21.299772, 
+    lng: -157.815886 
+  }],
+  center: {
+    lat: 21.299772, 
+    lng: -157.815886
+  }
+}

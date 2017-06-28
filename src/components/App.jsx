@@ -10,7 +10,7 @@ function App(){
       <CenterPageTitle title='React Test App' />
       <MutableDataTable data={ANIMALS} hideField={['id']}/>
       <GoogleMaps markers={MAPS.markers} center={MAPS.center}/>
-      {<UnityWebGL />}
+      <UnityWebGL />
     </div>
   );
 }

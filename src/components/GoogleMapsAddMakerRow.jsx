@@ -16,6 +16,7 @@ class GoogleMapsAddMakerRow extends React.Component{
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -27,7 +28,15 @@ class GoogleMapsAddMakerRow extends React.Component{
     this.setState( {[name]:value} );
   }
 
-  handleSubmit(){
+  handleKeyPress(e){
+    if (e.key == 'Enter') {
+      e.preventDefault();
+      this.handleSubmit(e);
+    }
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
     const hashString = this.state.color + this.state.lat + this.state.lng;
     
     const newMarker = {
@@ -65,6 +74,7 @@ class GoogleMapsAddMakerRow extends React.Component{
             name="color"
             placeholder="Marker (randomized)"
             value={this.state.color ? "" : ""}
+            onKeyPress={this.handleKeyPress}
             onChange={this.handleChange} />
         </td>
         <td>
@@ -73,6 +83,7 @@ class GoogleMapsAddMakerRow extends React.Component{
             name="lat"
             placeholder="Latitude"
             value={this.state.lat}
+            onKeyPress={this.handleKeyPress}
             onChange={this.handleChange} />
         </td>
         <td>
@@ -81,6 +92,7 @@ class GoogleMapsAddMakerRow extends React.Component{
             name="lng"
             placeholder="Longitude"
             value={this.state.lng}
+            onKeyPress={this.handleKeyPress}
             onChange={this.handleChange} />
         </td>
         <td>

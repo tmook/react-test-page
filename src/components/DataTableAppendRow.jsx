@@ -12,7 +12,15 @@ class DataTableAppendRow extends React.Component {
       this.refList[category]=""
     ));
 
+    this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleKeyPress(e){
+    if (e.key == 'Enter') {
+      e.preventDefault()
+      this.handleSubmit(e);
+    }
   }
 
   handleSubmit(e){
@@ -60,6 +68,7 @@ class DataTableAppendRow extends React.Component {
             ref={input => this.refList[category]=input}
             name={category}
             placeholder={capitalize(category)}
+            onKeyPress={this.handleKeyPress}
             onChange={this.handleChange} />
         </td>
       )

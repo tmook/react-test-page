@@ -2,6 +2,7 @@ import React from 'react';
 import CenterPageTitle from './CenterPageTitle.jsx';
 import MutableDataTable from './MutableDataTable.jsx';
 import GoogleMaps from './GoogleMaps.jsx';
+import UnityWebGL from './UnityWebGL.jsx';
 
 function App(){
   return (
@@ -9,6 +10,7 @@ function App(){
       <CenterPageTitle title='React Test App' />
       <MutableDataTable data={ANIMALS} hideField={['id']}/>
       <GoogleMaps markers={MAPS.markers} center={MAPS.center}/>
+      {<UnityWebGL />}
     </div>
   );
 }

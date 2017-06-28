@@ -20,7 +20,7 @@ function GoogleMapsMarkerRow (props){
         <td key={index}>{props.rowData[key]}</td>;
       if(key=='color'){
         let imgSrc = CONST.MARKERS[props.rowData[key]];
-        let imgStyle = {height:"1em",width:"1em"}
+        let imgStyle = {height:"1em", width:"1em"}
         returnCell = (<td key={index} >
           <img src={imgSrc} style={imgStyle} />
         </td>);

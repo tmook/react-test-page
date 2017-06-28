@@ -1,6 +1,5 @@
 import React from 'react';
 import GoogleMapsMap from './GoogleMapsMap.jsx';
-//import GoogleMapsAddMakerBar from './GoogleMapsAddMakerBar.jsx';
 import GoogleMapsMarkerTable from './GoogleMapsMarkerTable.jsx';
 
 

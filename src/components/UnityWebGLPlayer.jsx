@@ -22,8 +22,9 @@ class UnityWebGLPlayer extends React.Component{
     //double check UnityLoader object is avaliable
     if(typeof(UnityLoader) === 'object'){
       //load game instance with settings and save to this.gameInstance variable
-      this.gameInstance = UnityLoader.instantiate(this.refs.gameContainer, 
-                                                  "./assets/unity/Builds.json");
+      this.gameInstance = UnityLoader.instantiate(
+        this.refs.gameContainer, "./assets/unity/Builds.json"
+      );
     }else{
       console.log(
         'unity loader script loaded, but unable to find UnityLoader object'

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Button, FormControl} from 'react-bootstrap';
 
 import hashCode from '../../util/hashCode.js';
 import hasNull from '../../util/hasNull.js';
@@ -68,7 +69,7 @@ class GoogleMapsAddMakerRow extends React.Component{
     return (
       <tr>
         <td>
-          <input
+          <FormControl
             disabled={true}
             type="text"
             name="color"
@@ -78,7 +79,7 @@ class GoogleMapsAddMakerRow extends React.Component{
             onChange={this.handleChange} />
         </td>
         <td>
-          <input
+          <FormControl
             type="text"
             name="lat"
             placeholder="Latitude"
@@ -87,7 +88,7 @@ class GoogleMapsAddMakerRow extends React.Component{
             onChange={this.handleChange} />
         </td>
         <td>
-          <input
+          <FormControl
             type="text"
             name="lng"
             placeholder="Longitude"
@@ -96,9 +97,9 @@ class GoogleMapsAddMakerRow extends React.Component{
             onChange={this.handleChange} />
         </td>
         <td>
-          <button onClick={this.handleSubmit}>
+          <Button onClick={this.handleSubmit}>
             Mark it!
-          </button>
+          </Button>
         </td>
       </tr>
     );

@@ -13,8 +13,8 @@ class GoogleMap extends React.Component{
       },
       zoom: 8,
       mapSize: {
-        width: "500px",
-        height: "300px"
+        width: "100%",
+        height: "350px"
       }
     };
 

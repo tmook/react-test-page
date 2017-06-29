@@ -1,4 +1,5 @@
 import React from 'react';
+import {Button} from 'react-bootstrap';
 import * as CONST from '../../util/Constants.js';
 
 function GoogleMapsMarkerRow (props){
@@ -32,7 +33,7 @@ function GoogleMapsMarkerRow (props){
     <tr onClick={handleMarkerClick}>
       {rowElements}
       <td>
-        <button onClick={handleClick}>&#10006;</button>
+        <Button bsStyle='danger' onClick={handleClick}>&#10006;</Button>
       </td>
     </tr>
   );

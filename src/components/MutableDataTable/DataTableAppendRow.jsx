@@ -1,4 +1,5 @@
 import React from 'react';
+import {Button, FormControl} from 'react-bootstrap';
 import hashCode from '../../util/hashCode.js';
 import capitalize from '../../util/capitalize.js';
 
@@ -63,7 +64,7 @@ class DataTableAppendRow extends React.Component {
   render(){
     const inputFields = this.props.categories.map( (category,index) => (
         <td key={index}>
-          <input 
+          <FormControl 
             type="text" 
             ref={input => this.refList[category]=input}
             name={category}
@@ -78,9 +79,9 @@ class DataTableAppendRow extends React.Component {
       <tr>
         {inputFields}
         <td>
-          <button onClick={this.handleSubmit}>
+          <Button onClick={this.handleSubmit}>
             add
-          </button>
+          </Button>
         </td>
       </tr>
     );

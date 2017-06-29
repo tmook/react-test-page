@@ -1,4 +1,5 @@
 import React from 'react';
+import {Table} from 'react-bootstrap';
 import GoogleMapsAddMakerRow from './GoogleMapsAddMakerRow.jsx';
 import GoogleMapsMarkerRow from './GoogleMapsMarkerRow.jsx';
 
@@ -23,12 +24,12 @@ class GoogleMapsMarkerTable extends React.Component{
       );
 
     return (
-      <table>
+      <Table striped bordered condensed hover>
         <tbody>
           <GoogleMapsAddMakerRow handleAddMarker={this.props.handleAddMarker} />
           {dataRows}
         </tbody>
-      </table>
+      </Table>
     )
   }
 

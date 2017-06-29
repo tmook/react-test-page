@@ -1,4 +1,5 @@
 import React from 'react';
+import {Button} from 'react-bootstrap';
 
 function DataTableRow (props){
   function handleClick(e){
@@ -15,9 +16,9 @@ function DataTableRow (props){
     <tr>
       {rowElements}
       <td>
-        <button onClick={handleClick}>
+        <Button bsStyle='danger' onClick={handleClick}>
           &#10006;
-        </button>
+        </Button>
       </td>
     </tr>
   );

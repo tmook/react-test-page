@@ -7,12 +7,13 @@ class ThreeJSCubeScene extends React.Component{
 
     this.defaultConfig = {
       sceneStyle: {
-        width: "500px",
-        height: "500px",
-        margin: "auto"
+        width: "350px",
+        height: "175px",
+        margin: "auto",
+        display: "block"
       },
-      sceneWidth:500,
-      sceneHeight:500
+      sceneWidth:555,
+      sceneHeight:278
     };
 
     this.load = this.load.bind(this);

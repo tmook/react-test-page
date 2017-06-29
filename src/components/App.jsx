@@ -1,4 +1,5 @@
 import React from 'react';
+import {Grid, Row, Col} from 'react-bootstrap';
 import CenterPageTitle from './CenterPageTitle.jsx';
 import MutableDataTable from './MutableDataTable/MutableDataTable.jsx';
 import GoogleMaps from './GoogleMaps/GoogleMaps.jsx';
@@ -7,13 +8,34 @@ import ThreeJS from './ThreeJS/ThreeJS.jsx';
 
 function App(){
   return (
-    <div>
-      <CenterPageTitle title='React Test App' />
-      <MutableDataTable data={ANIMALS} hideField={['id']}/>
-      <GoogleMaps markers={MAPS.markers} center={MAPS.center}/>
-      <UnityWebGL />
-      <ThreeJS />
-    </div>
+    <Grid>
+      <Row>
+        <Col xs={12}>
+          <CenterPageTitle title='React Test App' />
+        </Col>
+      </Row>
+      <Row>
+        <Col xs={6}>
+          <MutableDataTable data={ANIMALS} hideField={['id']}/>
+        </Col>
+        <Col xs={6}>
+          <MutableDataTable data={ANIMALS} hideField={['id']}/>
+        </Col>
+      </Row>
+      <Row>
+        <Col xs={12}>
+          <GoogleMaps markers={MAPS.markers} center={MAPS.center}/>
+        </Col>
+      </Row>
+      <Row>
+        <Col xs={6}>
+          <ThreeJS />
+        </Col>
+        <Col xs={6}>
+          <UnityWebGL />
+        </Col>
+      </Row>
+    </Grid>
   );
 }
 

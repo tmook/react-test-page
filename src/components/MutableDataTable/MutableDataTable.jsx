@@ -1,4 +1,5 @@
 import React from 'react';
+import {Table} from 'react-bootstrap';
 import DataTableRow from './DataTableRow.jsx';
 import DataTableHeaderRow from './DataTableHeaderRow.jsx';
 import DataTableAppendRow from './DataTableAppendRow.jsx';
@@ -64,21 +65,23 @@ class MutableDataTable extends React.Component{
       )
 
     return (
-      <table>
-        <caption>
+      <div>
+        <span>
           {this.props.title != null ? this.props.title : "Mutable Data Table"}
-        </caption>
-        <thead>
-          <DataTableHeaderRow 
-            categories={cleanCategories} />
-        </thead>
-        <tbody>
-          {dataRows}
-          <DataTableAppendRow 
-            categories={cleanCategories}
-            handleRowAdd={this.handleRowAdd} />
-        </tbody>
-      </table>
+        </span>
+        <Table bordered condensed hover striped>
+          <thead>
+            <DataTableHeaderRow 
+              categories={cleanCategories} />
+          </thead>
+          <tbody>
+            {dataRows}
+            <DataTableAppendRow 
+              categories={cleanCategories}
+              handleRowAdd={this.handleRowAdd} />
+          </tbody>
+        </Table>
+      </div>
     );
   }
 }

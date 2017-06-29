@@ -18,22 +18,24 @@ function App(){
         <Col xs={6}>
           <MutableDataTable data={ANIMALS} hideField={['id']}/>
         </Col>
-        <Col xs={6}>
+        <Col xs={6} style={{borderLeft: "2px solid #ccc"}}>
           <Jumbotron className={['text-center','align-middle']}>
             <h1>d3.js placeholder</h1>
           </Jumbotron>
         </Col>
       </Row>
       <Row>
+        <hr style={{borderTop:"2px solid #ccc"}}/>
         <Col xs={12}>
           <GoogleMaps markers={MAPS.markers} center={MAPS.center}/>
         </Col>
       </Row>
       <Row>
+        <hr style={{borderTop:"2px solid #ccc"}}/>
         <Col xs={6}>
           <ThreeJS />
         </Col>
-        <Col xs={6}>
+        <Col xs={6} style={{borderLeft: "2px solid #ccc"}}>
           <UnityWebGL />
         </Col>
       </Row>

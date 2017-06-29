@@ -1,6 +1,6 @@
 import React from 'react';
-import hashCode from '../util/hashCode.js';
-import capitalize from '../util/capitalize.js';
+import hashCode from '../../util/hashCode.js';
+import capitalize from '../../util/capitalize.js';
 
 
 class DataTableAppendRow extends React.Component {

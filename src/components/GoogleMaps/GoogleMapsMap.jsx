@@ -1,5 +1,5 @@
 import React from 'react';
-import * as CONST from '../util/Constants.js';
+import * as CONST from '../../util/Constants.js';
 
 
 class GoogleMap extends React.Component{

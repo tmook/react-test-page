@@ -1,9 +1,9 @@
 import React from 'react';
 import CenterPageTitle from './CenterPageTitle.jsx';
-import MutableDataTable from './MutableDataTable.jsx';
-import GoogleMaps from './GoogleMaps.jsx';
-import UnityWebGL from './UnityWebGL.jsx';
-import ThreeJS from './ThreeJS.jsx';
+import MutableDataTable from './MutableDataTable/MutableDataTable.jsx';
+import GoogleMaps from './GoogleMaps/GoogleMaps.jsx';
+import UnityWebGL from './UnityWebGL/UnityWebGL.jsx';
+import ThreeJS from './ThreeJS/ThreeJS.jsx';
 
 function App(){
   return (

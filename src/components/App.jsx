@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Row, Col} from 'react-bootstrap';
+import {Grid, Row, Col, Jumbotron} from 'react-bootstrap';
 import CenterPageTitle from './CenterPageTitle.jsx';
 import MutableDataTable from './MutableDataTable/MutableDataTable.jsx';
 import GoogleMaps from './GoogleMaps/GoogleMaps.jsx';
@@ -19,7 +19,9 @@ function App(){
           <MutableDataTable data={ANIMALS} hideField={['id']}/>
         </Col>
         <Col xs={6}>
-          <MutableDataTable data={ANIMALS} hideField={['id']}/>
+          <Jumbotron className={['text-center','align-middle']}>
+            <h1>d3.js placeholder</h1>
+          </Jumbotron>
         </Col>
       </Row>
       <Row>

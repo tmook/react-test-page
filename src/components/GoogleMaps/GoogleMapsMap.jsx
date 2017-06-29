@@ -2,7 +2,7 @@ import React from 'react';
 import * as CONST from '../../util/Constants.js';
 
 
-class GoogleMap extends React.Component{
+class GoogleMapsMap extends React.Component{
   constructor(props){
     super(props);
 
@@ -129,5 +129,5 @@ class GoogleMap extends React.Component{
 
 }
 
-export default GoogleMap;
+export default GoogleMapsMap;
 

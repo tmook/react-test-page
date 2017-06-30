@@ -83,7 +83,7 @@ class D3CityBarChart extends React.Component{
       g.append("text")
         .attr("class", "y label")
         .attr("dy", "-0.75em")
-        .attr("text-anchor", "middle")
+        .attr("text-anchor", "front")
         .text("Population");
 
       g.selectAll(".bar")

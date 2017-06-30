@@ -1,8 +1,9 @@
 import React from 'react';
-import {Table} from 'react-bootstrap';
+import {Table, Button} from 'react-bootstrap';
 import DataTableRow from './DataTableRow.jsx';
 import DataTableHeaderRow from './DataTableHeaderRow.jsx';
 import DataTableAppendRow from './DataTableAppendRow.jsx';
+import D3 from '../D3/D3.jsx';
 
 class MutableDataTable extends React.Component{
   constructor(props){
@@ -15,12 +16,19 @@ class MutableDataTable extends React.Component{
     //set state object
     this.state = {
       categories: tableCategories,
-      data: this.props.data
+      data: this.props.data,
+      isPlot: false
     };
 
     //bind 'this' to handler functions
+    this.handlePlot = this.handlePlot.bind(this);
     this.handleRowAdd = this.handleRowAdd.bind(this);
     this.handleRowRemove = this.handleRowRemove.bind(this);
+  }
+
+  handlePlot(){
+    //Toggle plot 
+    this.setState(prevState => ( {isPlot: !prevState.isPlot} ) );
   }
 
   handleRowAdd(newRow){
@@ -72,7 +80,14 @@ class MutableDataTable extends React.Component{
         <Table bordered condensed hover striped>
           <thead>
             <DataTableHeaderRow 
-              categories={cleanCategories} />
+              categories={cleanCategories} >
+              <Button 
+                bsSize="xsmall" 
+                bsStyle={this.state.isPlot ? "success" : "default"} 
+                onClick={this.handlePlot}>
+                Plot
+              </Button>
+            </DataTableHeaderRow>
           </thead>
           <tbody>
             {dataRows}
@@ -81,6 +96,7 @@ class MutableDataTable extends React.Component{
               handleRowAdd={this.handleRowAdd} />
           </tbody>
         </Table>
+        {this.state.isPlot && <D3 title type="animal" data={this.state.data}/>}
       </div>
     );
   }

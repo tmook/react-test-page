@@ -9,6 +9,7 @@ function DataTableHeaderRow (props){
   return (
     <tr>
       {headerElements}
+      {props.children && <th>{props.children}</th>}
     </tr>
   );
 }

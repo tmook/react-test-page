@@ -5,6 +5,7 @@ import MutableDataTable from './MutableDataTable/MutableDataTable.jsx';
 import GoogleMaps from './GoogleMaps/GoogleMaps.jsx';
 import UnityWebGL from './UnityWebGL/UnityWebGL.jsx';
 import ThreeJS from './ThreeJS/ThreeJS.jsx';
+import D3 from './D3/D3.jsx';
 
 function App(){
   return (
@@ -15,13 +16,11 @@ function App(){
         </Col>
       </Row>
       <Row>
-        <Col xs={6}>
+        <Col xs={6} style={{borderRight: "2px solid #ccc"}}>
           <MutableDataTable data={ANIMALS} hideField={['id']}/>
         </Col>
-        <Col xs={6} style={{borderLeft: "2px solid #ccc"}}>
-          <Jumbotron className={['text-center','align-middle']}>
-            <h1>d3.js placeholder</h1>
-          </Jumbotron>
+        <Col xs={6}>
+          <D3 type="city" data={CITIES} />
         </Col>
       </Row>
       <Row>
@@ -48,7 +47,7 @@ export default App;
 var ANIMALS = [
     {id: "2104270841", animal: "Cat", age: "3", color: "Brown"},
     {id: "245082176", animal: "Dog", age: "2", color: "Orange"},
-    {id: "-1846001306", animal: "Pig", Age: "1", color: "White"}
+    {id: "-1846001306", animal: "Pig", age: "1", color: "White"}
 ];
 
 var MAPS = {
@@ -63,3 +62,11 @@ var MAPS = {
     lng: -157.815886
   }
 }
+
+var CITIES = [
+  { "population": 4.4, "city": "Seattle" }, 
+  { "population": 2.1, "city": "Dallas" }, 
+  { "population": 17.2, "city": "New York" }, 
+  { "population": 3.8, "city": "Boston" }, 
+  { "population": 10.5, "city": "Los Angeles" }
+]

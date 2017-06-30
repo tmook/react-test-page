@@ -66,7 +66,7 @@ class DataTableAppendRow extends React.Component {
         <td key={index}>
           <FormControl 
             type="text" 
-            ref={input => this.refList[category]=input}
+            inputRef={input => this.refList[category]=input}
             name={category}
             placeholder={capitalize(category)}
             onKeyPress={this.handleKeyPress}
